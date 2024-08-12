@@ -1,0 +1,9 @@
+Consent Type,Read,Write
+ad_storage,true,true,
+analytics_storage,true,true,
+wait_for_update,true,true,
+functionality_storage,true,true,
+personalization_storage,true,true,
+security_storage,true,true,
+ad_user_data,true,true,
+ad_personalization,true,true
