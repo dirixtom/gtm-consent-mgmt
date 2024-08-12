@@ -1,0 +1,454 @@
+{
+  "type": "GROUP",
+  "name": "commandGroup",
+  "displayName": "Consent Command",
+  "groupStyle": "ZIPPY_OPEN",
+  "subParams": [
+    {
+      "type": "SELECT",
+      "name": "command",
+      "displayName": "",
+      "macrosInSelect": false,
+      "selectItems": [
+        {
+          "value": "default",
+          "displayValue": "Default Command"
+        },
+        {
+          "value": "update",
+          "displayValue": "Update Command"
+        }
+      ],
+      "simpleValueType": true,
+      "defaultValue": "default",
+      "alwaysInSummary": true,
+      "subParams": [],
+      "help": ""
+    }
+  ],
+  "help": "Choose which Consent Mode command this instance of the template should fire"
+},
+{
+  "type": "GROUP",
+  "name": "defaultGroup",
+  "displayName": "Default Settings",
+  "groupStyle": "ZIPPY_OPEN",
+  "subParams": [
+    {
+      "type": "PARAM_TABLE",
+      "name": "defaultSettings",
+      "displayName": "",
+      "paramTableColumns": [
+        {
+          "param": {
+            "type": "TEXT",
+            "name": "region",
+            "displayName": "",
+            "simpleValueType": true
+          },
+          "isUnique": true
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "adStorage",
+            "displayName": "ad_storage",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "analyticsStorage",
+            "displayName": "analytics_storage",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "functionalityStorage",
+            "displayName": "functionality_storage",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "personalizationStorage",
+            "displayName": "personalization_storage",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "securityStorage",
+            "displayName": "security_storage",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "adUserData",
+            "displayName": "ad_user_data",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        },
+        {
+          "param": {
+            "type": "SELECT",
+            "name": "adPersonalization",
+            "displayName": "ad_personalization",
+            "macrosInSelect": true,
+            "selectItems": [
+              {
+                "value": "granted",
+                "displayValue": "Granted"
+              },
+              {
+                "value": "denied",
+                "displayValue": "Denied"
+              },
+              {
+                "value": "",
+                "displayValue": "(not set)"
+              }
+            ],
+            "simpleValueType": true,
+            "defaultValue": "granted"
+          },
+          "isUnique": false
+        }
+      ],
+      "valueValidators": [
+        {
+          "type": "TABLE_ROW_COUNT",
+          "args": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "type": "LABEL",
+      "name": "defaultLabel",
+      "displayName": "IMPORTANT: This tag should be fired using the Consent Initialization trigger to ensure default consent settings are in place before any tags fire. Make sure you have configured a separate instance of this template which uses the \"Update\" command. Failure to properly configure both tags will result in undesirable tag behavior."
+    },
+    {
+      "type": "GROUP",
+      "name": "settingsGroup",
+      "displayName": "Additional Settings",
+      "groupStyle": "ZIPPY_OPEN",
+      "subParams": [
+        {
+          "type": "CHECKBOX",
+          "name": "adsDataRedaction",
+          "checkboxText": "Redact Ads Data",
+          "simpleValueType": true
+        },
+        {
+          "type": "TEXT",
+          "name": "waitForUpdate",
+          "displayName": "Wait For Update",
+          "simpleValueType": true,
+          "valueUnit": "ms",
+          "help": "Time to wait for update command before firing consent-aware tags",
+          "defaultValue": 500
+        }
+      ]
+    }
+  ],
+  "enablingConditions": [
+    {
+      "paramName": "command",
+      "paramValue": "default",
+      "type": "EQUALS"
+    }
+  ]
+},
+{
+  "type": "GROUP",
+  "name": "updateGroup",
+  "displayName": "Update Settings",
+  "groupStyle": "ZIPPY_OPEN",
+  "subParams": [
+    {
+      "type": "SELECT",
+      "name": "adStorageUpdate",
+      "displayName": "ad_storage",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "defaultValue": "-",
+      "notSetText": ""
+    },
+    {
+      "type": "SELECT",
+      "name": "analyticsStorageUpdate",
+      "displayName": "analytics_storage",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "SELECT",
+      "name": "functionalityStorageUpdate",
+      "displayName": "functionality_storage",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "SELECT",
+      "name": "personalizationStorageUpdate",
+      "displayName": "personalization_storage",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "SELECT",
+      "name": "securityStorageUpdate",
+      "displayName": "security_storage",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "SELECT",
+      "name": "adUserDataUpdate",
+      "displayName": "ad_user_data",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "SELECT",
+      "name": "adPersonalizationUpdate",
+      "displayName": "ad_personalization",
+      "macrosInSelect": true,
+      "selectItems": [
+        {
+          "value": "granted",
+          "displayValue": "Granted"
+        },
+        {
+          "value": "denied",
+          "displayValue": "Denied"
+        },
+        {
+          "value": "",
+          "displayValue": "(not set)"
+        }
+      ],
+      "simpleValueType": true,
+      "notSetText": "",
+      "defaultValue": "-"
+    },
+    {
+      "type": "LABEL",
+      "name": "updateLabel",
+      "displayName": "This tag should be fired on a trigger that executes when consent changes. Select a variable in each of the above dropdowns that is set to \"granted\" when consent is granted and \"denied\" when consent is not granted for the row\u0027s consent type."
+    }
+  ],
+  "enablingConditions": [
+    {
+      "paramName": "command",
+      "paramValue": "update",
+      "type": "EQUALS"
+    }
+  ],
+  "help": "This tag should be fired through a custom event trigger that accepts or denies tracking/data storage consent - DO NOT FORGET to set the default stats in a separate tag which fires when the page loads."
+}
